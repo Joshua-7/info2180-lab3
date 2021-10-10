@@ -8,6 +8,8 @@ let playdata = ["a","b","c","d","e","f","g","h","i"];
       function init()
       {
         let set = document.getElementById("board");
+        let bt = document.getElementsByClassName("btn");
+        bt[0].addEventListener("click",function(){cl()});
         for(var p =0;p<9;p++)
         {
           set.children[p].classList.add("square");
@@ -113,3 +115,20 @@ function windisplay(win)
     return;
 }
 
+function cl()
+{
+    let winz = document.getElementById("status");
+    let set = document.getElementById("board");
+    tracker=[]
+    playdata = ["a","b","c","d","e","f","g","h","i"];
+    winz.textContent = "Move your mouse over a square and click to play an X or an O."
+    winz.classList.remove("you-won");
+    winz.classList.remove("before");
+    winz.classList.remove("after");
+    for(var p =0;p<9;p++)
+        {
+          set.children[p].classList.remove("X","O");
+          set.children[p].textContent =" ";
+        }
+
+}
